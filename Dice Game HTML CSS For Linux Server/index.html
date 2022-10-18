@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <title>Dice Game</title>
+    <head>
+    <link rel="stylesheet" href="indexcss.css" />
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    </head>
+    <body>
+    
+    <img src="deathdice.png" alt="Italian Trulli" class="center">
+
+    
+    <p>If you want to play dice type yes!</p>
+    <p>Then type the number for how many faces you want on the dice.</p>
+    <p>Then type how many dice you want to roll.</p>
+    <p>Then if you would like to play again type yes.</p>
+    <p>If you say anything other than yes confirm your answer.</p>
+
+
+
+
+<py-script>
+
+
+def diceGame():
+
+    try:
+        import random ##used for random number selection
+        min = 1 ##minimum number on each die.
+        playGameyes = input("")
+        playGame = playGameyes
+        
+        if playGame == 'yes':
+            faces = int(input("How many sides on a die? ")) ##choose the number of faces for the die.
+            num_dice = int(input("How many dice? ")) ##choose the number of dice to roll.
+
+            rolls = [] ##list to contain the dice rolls.
+
+            for die in range(num_dice):  ##take the number from num_dice variable above. 
+                dice_roll = random.randint(min, faces) ##random number generator between min on die and number of faces of the die.
+                rolls.append(dice_roll) ##takes the numbers from dice_roll and adds the random dice roll to the list above - rolls.
+                
+            print("You have rolled: " + str(rolls)) ##converts the list rolls to a string, and prints each dice roll.
+            print("Sum of the roll is ", sum(rolls)) ##gives you the sum of your dice rolls.
+            ##playAgain = input("")
+            ##if playAgain == 'yes':
+                ##return(diceGame()) ##restarts the dice game.
+            ##else:
+                ##print("") ##ends the game.
+                ##return(diceGame()) ##restarts the dice game.
+        else:
+            print("Goodbye.") ##ends the game.
+            return()
+    except:
+        return()
+
+diceGame()
+</py-script>   
+    </body>
+    </html>
